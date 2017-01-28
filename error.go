@@ -206,6 +206,22 @@ func (err *Error) StackFrames() []StackFrame {
 	return err.frames
 }
 
+// SetStackFrames sets an array of frames containing information about the
+// stack.
+func (err *Error) SetStackFrames(frames []StackFrame) {
+	err.frames = frames
+}
+
+// Prefix returns the prefix string.
+func (err *Error) Prefix() string {
+	return err.prefix
+}
+
+// SetPrefix sets the prefix string.
+func (err *Error) SetPrefix(prefix string) {
+	err.prefix = prefix
+}
+
 // TypeName returns the type this error. e.g. *errors.stringError.
 func (err *Error) TypeName() string {
 	if _, ok := err.Err.(uncaughtPanic); ok {
